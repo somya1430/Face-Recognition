@@ -1,3 +1,4 @@
+# Face matching system to choose photo from your system and matching with another photo
 import cv2
 import face_recognition
 from tkinter import *
@@ -17,6 +18,7 @@ def resize_image(image, max_size):
 
     return cv2.resize(image, (new_width, new_height))
 
+# Loading Unknown image
 def load_known_image():
     global known_image, known_encoding, known_image_label
     filepath = filedialog.askopenfilename(title="Select Known Image")
@@ -31,6 +33,7 @@ def load_known_image():
         known_image_label.config(image=known_tk_img)
         known_image_label.image = known_tk_img
 
+# Loading Unknown image
 def load_unknown_image():
     global unknown_image, unknown_image_label
     filepath = filedialog.askopenfilename(title="Select Unknown Image")
@@ -44,6 +47,7 @@ def load_unknown_image():
         unknown_image_label.config(image=unknown_tk_img)
         unknown_image_label.image = unknown_tk_img
 
+# Face matching function
 def recognize_faces():
     global known_image, known_encoding, unknown_image, output_image_label, result_label
 
