@@ -1,7 +1,9 @@
+# importing all required modules
 import cv2
 import face_recognition
 from tkinter import filedialog
 
+# Loading images from local storage
 image = filedialog.askopenfilename(title="Select Known Image")
 known_image = face_recognition.load_image_file(image)
 known_encoding = face_recognition.face_encodings(known_image)[0]
@@ -11,6 +13,7 @@ known_face_names = ["Matched"]
 
 video_capture = cv2.VideoCapture(0)
 
+# Capture frame-by-frame(matching face)
 while True:
     ret, frame = video_capture.read()
 
@@ -40,3 +43,5 @@ while True:
 
 video_capture.release()
 cv2.destroyAllWindows()
+
+# Code end
